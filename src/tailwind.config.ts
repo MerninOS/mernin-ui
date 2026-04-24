@@ -4,11 +4,11 @@ import type { Config } from "tailwindcss";
  * Mernin' shared Tailwind config.
  * Import and spread into each app's tailwind.config.ts:
  *
- *   import { merninTailwind } from "@mernin/ui/tailwind"
+ *   import { merninTailwind } from "@merninos/ui/tailwind"
  *   export default { ...merninTailwind, content: [...] }
  *
  * Or extend it:
- *   import { merninTheme } from "@mernin/ui/tailwind"
+ *   import { merninTheme } from "@merninos/ui/tailwind"
  *   export default {
  *     theme: { extend: { ...merninTheme } },
  *     content: [...]

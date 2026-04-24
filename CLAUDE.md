@@ -11,6 +11,110 @@
 
 ---
 
+## 🚨 Release Workflow — REQUIRED READING BEFORE EDITING
+
+This package is published to **GitHub Packages** as `@merninos/ui`. Consumer apps
+(CoffeeOS, crowdroast, …) install it from there — **not from the local filesystem**.
+Changes to this repo have **zero effect on consumers** until a new version is
+published AND each consumer bumps its dep.
+
+### After making any code change in this repo
+
+Finish the edit, then walk the user through shipping it:
+
+1. **Commit the change in `mernin-ui`:**
+   ```bash
+   cd mernin-ui
+   git add -A
+   git commit -m "<conventional commit message>"
+   git push
+   ```
+
+2. **Release a new version:**
+   ```bash
+   npm run release           # patch bump: 0.1.1 → 0.1.2
+   # OR for a new component / notable addition:
+   npm version minor && git push --follow-tags
+   # OR for a breaking change:
+   npm version major && git push --follow-tags
+   ```
+   This tags `v<version>` and pushes the tag. The
+   [publish workflow](.github/workflows/publish.yml) runs automatically, builds
+   `dist/`, and publishes to GitHub Packages. Watch the Actions tab until green.
+
+3. **Update each consumer that needs the change:**
+   ```bash
+   cd ../CoffeeOS           # or ../crowdroast
+   npm update @merninos/ui    # picks up the new version within the caret range
+   # If it was a major bump, edit package.json to widen the caret first.
+   git add package.json package-lock.json
+   git commit -m "chore: bump @merninos/ui to <version>"
+   git push
+   ```
+
+4. **Verify** each consumer builds locally (`npm run build`) before pushing.
+   Vercel picks up the push and redeploys.
+
+### Semver guidance for this package
+
+- **Patch** (`npm run release`): bug fix inside an existing primitive, palette
+  tweak, internal refactor, docs. No consumer code has to change.
+- **Minor**: new export (component, variant, token). Additive only.
+- **Major**: a rename, removed export, or breaking prop-shape change. Every
+  consumer will need code changes — flag this explicitly in the commit.
+
+### Never do this
+
+- ❌ **Don't fork a primitive in a consumer repo.** If a sibling needs
+  different behavior, add a variant here (`variant="auction"` etc.) and
+  release. The whole point of the shared skeleton is a single source of truth.
+- ❌ **Don't tell a user "the change is live" after committing here alone.**
+  It isn't — it's live after step 2 finishes AND step 3 runs in the relevant
+  consumer. Be explicit about which step they're at.
+- ❌ **Don't commit `"@merninos/ui": "file:../mernin-ui"` in a consumer.**
+  That only works on the developer's laptop (where the sibling dir exists)
+  and breaks Vercel builds. If you see a consumer using a `file:` link,
+  that's a bug — switch it back to the published range before commit.
+- ❌ **Don't edit files inside `CoffeeOS/node_modules/@merninos/ui/` or
+  `crowdroast/node_modules/@merninos/ui/`.** Those are installed copies.
+  Edits there vanish on the next `npm install` and ship nothing.
+
+### Local iteration (without releasing for every tweak)
+
+When actively iterating on this package, constant release cycles are painful.
+Use `npm link` instead — changes show up in the consumer immediately:
+
+```bash
+cd mernin-ui
+npm link                      # register this package globally
+npm run dev                   # tsup watch mode
+
+cd ../CoffeeOS                # in a separate terminal
+npm link @merninos/ui           # point node_modules at the linked copy
+npm run dev
+```
+
+When the change is finalized, **unlink and ship it properly** via the Release
+Workflow above — otherwise the consumer will keep working locally but break
+the instant it's deployed.
+
+```bash
+cd CoffeeOS
+npm unlink --no-save @merninos/ui
+npm install                   # reinstalls the published version
+```
+
+### One-time setup (already done, for reference)
+
+Each consumer repo has a committed `.npmrc` pointing `@merninos` at GitHub
+Packages and reading auth from `${NODE_AUTH_TOKEN}`. Each developer needs a
+PAT with `read:packages` in `~/.npmrc`. Each Vercel project has
+`NODE_AUTH_TOKEN` set as an env var. Publishing from Actions uses
+`${{ secrets.GITHUB_TOKEN }}` — no manual token needed for CI publish. See
+[`../README.md`](../README.md) for the full one-time-setup walkthrough.
+
+---
+
 ## Brand Personality
 
 Mernin' and it's softwares (CoffeeOS, CrowdRoast, and Soluable) is **loud, warm, and a little unhinged in the best way**. Think: retro diner meets streetwear meets specialty coffee nerd. The visual language is bold, chunky, comic-book-inflected — but still clean and intentional underneath. Software built under the Mernin' umbrella should feel like that too.
