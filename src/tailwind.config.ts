@@ -17,17 +17,18 @@ import type { Config } from "tailwindcss";
 
 export const merninTheme = {
   colors: {
-    // Mernin' brand palette
-    tomato:   "#E8442A",
-    cream:    "#F5F0D8",
-    espresso: "#1C0F05",
-    sun:      "#F5C842",
-    sky:      "#5BC8D5",
-    chalk:    "#FDFAF0",
-    roast:    "#3B1F0A",
-    honey:    "#E8913A",
-    matcha:   "#5A7A3A",
-    fog:      "#D8D0B8",
+    // Mernin' brand palette — CSS variables with hex fallback so apps can override per-palette.
+    // Override at :root or [data-palette="X"] by setting --mernin-<name>.
+    tomato:   "var(--mernin-tomato, #E8442A)",
+    cream:    "var(--mernin-cream, #F5F0D8)",
+    espresso: "var(--mernin-espresso, #1C0F05)",
+    sun:      "var(--mernin-sun, #F5C842)",
+    sky:      "var(--mernin-sky, #5BC8D5)",
+    chalk:    "var(--mernin-chalk, #FDFAF0)",
+    roast:    "var(--mernin-roast, #3B1F0A)",
+    honey:    "var(--mernin-honey, #E8913A)",
+    matcha:   "var(--mernin-matcha, #5A7A3A)",
+    fog:      "var(--mernin-fog, #D8D0B8)",
     // shadcn/Radix CSS variable tokens (apps can override)
     background: "hsl(var(--background))",
     foreground: "hsl(var(--foreground))",
@@ -71,11 +72,11 @@ export const merninTheme = {
     sans:     ["system-ui", "sans-serif"],
   },
   boxShadow: {
-    "flat-sm":     "3px 3px 0px #1C0F05",
-    "flat-md":     "5px 5px 0px #1C0F05",
-    "flat-lg":     "8px 8px 0px #1C0F05",
-    "flat-tomato": "5px 5px 0px #E8442A",
-    "flat-cream":  "5px 5px 0px #F5F0D8",
+    "flat-sm":     "3px 3px 0px var(--mernin-espresso, #1C0F05)",
+    "flat-md":     "5px 5px 0px var(--mernin-espresso, #1C0F05)",
+    "flat-lg":     "8px 8px 0px var(--mernin-espresso, #1C0F05)",
+    "flat-tomato": "5px 5px 0px var(--mernin-tomato, #E8442A)",
+    "flat-cream":  "5px 5px 0px var(--mernin-cream, #F5F0D8)",
   },
   borderWidth: {
     "3": "3px",
@@ -121,7 +122,7 @@ export const merninTheme = {
     "fade-up":         "fade-up 220ms cubic-bezier(0.16, 1, 0.3, 1) both",
     "bounce-in":       "bounce-in 220ms cubic-bezier(0.34, 1.56, 0.64, 1) both",
   },
-} satisfies Config["theme"]["extend"];
+} satisfies NonNullable<NonNullable<Config["theme"]>["extend"]>;
 
 /**
  * Full ready-to-use config. Merge your own content array:

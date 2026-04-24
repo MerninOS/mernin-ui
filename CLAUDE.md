@@ -3,6 +3,12 @@
 > Drop this file into any Mernin' software repo. Claude must follow these guidelines
 > whenever building, modifying, or reviewing frontend UI.
 
+> **READ FIRST:** [`../SIBLING_DESIGN.md`](../SIBLING_DESIGN.md) — every Mernin' product
+> is a **sibling, not a clone**. This file is the *shared skeleton* all siblings inherit.
+> The sibling doc defines which levers each product uses to express its own personality
+> (palette, motifs, voice, copy). Edits to this file affect **every** product; edits to a
+> sibling's identity belong in that product's repo, not here.
+
 ---
 
 ## Brand Personality

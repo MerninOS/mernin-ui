@@ -23,11 +23,21 @@
     }
   },
   "files": ["dist", "CLAUDE.md"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MerninOS/mernin-ui.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
     "lint": "eslint .",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "npm run build",
+    "release": "npm version patch && git push --follow-tags"
   },
   "peerDependencies": {
     "react": "^18 || ^19",

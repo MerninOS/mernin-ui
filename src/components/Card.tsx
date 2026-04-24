@@ -16,7 +16,7 @@ const Card = React.forwardRef<
       // Default: product card
       "rounded-[20px] border-[5px] border-espresso bg-chalk text-espresso transition-all duration-150",
       variant === "default" && "shadow-flat-md hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-flat-lg",
-      variant === "product" && "shadow-[6px_6px_0_#1C0F05] hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[9px_9px_0_#1C0F05]",
+      variant === "product" && "shadow-[6px_6px_0_var(--mernin-espresso,#1C0F05)] hover:-translate-x-[3px] hover:-translate-y-[3px] hover:shadow-[9px_9px_0_var(--mernin-espresso,#1C0F05)]",
       variant === "feature" && "bg-tomato text-cream border-[4px] shadow-flat-md",
       className
     )}
@@ -51,7 +51,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("text-sm font-body opacity-60", className)}
+    className={cn("text-sm font-body text-espresso/60", className)}
     {...props}
   />
 ));

@@ -19,7 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
           "file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-espresso",
           "placeholder:text-espresso/40",
           "focus-visible:outline-none focus-visible:-translate-x-[1px] focus-visible:-translate-y-[1px]",
-          "focus-visible:shadow-[4px_4px_0px_#E8442A] focus-visible:border-tomato",
+          "focus-visible:shadow-[4px_4px_0px_var(--mernin-tomato,#E8442A)] focus-visible:border-tomato",
           "disabled:cursor-not-allowed disabled:opacity-50",
           "md:text-sm",
           className

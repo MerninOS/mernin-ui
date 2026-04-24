@@ -16,6 +16,9 @@ export type { BadgeProps }                  from "./components/Badge";
 
 export { Input }                            from "./components/Input";
 
+export { NavTab, navTabVariants }           from "./components/NavTab";
+export type { NavTabProps }                 from "./components/NavTab";
+
 export { Marquee }                          from "./components/Marquee";
 export { Starburst }                        from "./components/Starburst";
 
