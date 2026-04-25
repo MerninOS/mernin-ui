@@ -9,7 +9,7 @@ import { cn } from "../utils/cn";
  * Active: espresso inversion + shadow. Use `asChild` to wrap Next/Remix Link.
  */
 const navTabVariants = cva(
-  "inline-flex items-center cursor-pointer rounded-[10px] px-3.5 py-2 text-[14px] font-headline font-bold tracking-[-0.01em] transition-all duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tomato focus-visible:ring-offset-2",
+  "inline-flex items-center cursor-pointer rounded-[10px] px-5 py-2.5 text-[14px] font-headline font-bold tracking-[-0.01em] transition-all duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tomato focus-visible:ring-offset-2",
   {
     variants: {
       active: {
