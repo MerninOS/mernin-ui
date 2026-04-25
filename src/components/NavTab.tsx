@@ -9,14 +9,14 @@ import { cn } from "../utils/cn";
  * Active: espresso inversion + shadow. Use `asChild` to wrap Next/Remix Link.
  */
 const navTabVariants = cva(
-  "inline-flex items-center cursor-pointer rounded-[6px] px-3.5 py-2 text-[14px] font-headline font-bold tracking-[-0.01em] transition-all duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tomato focus-visible:ring-offset-2",
+  "inline-flex items-center cursor-pointer rounded-[10px] px-3.5 py-2 text-[14px] font-headline font-bold tracking-[-0.01em] transition-all duration-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tomato focus-visible:ring-offset-2",
   {
     variants: {
       active: {
         true:
-          "bg-espresso text-cream shadow-flat-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-flat-md active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
+          "bg-espresso text-cream hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-flat-md active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
         false:
-          "text-espresso bg-transparent hover:bg-cream hover:shadow-flat-sm hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
+          "text-espresso bg-transparent hover:bg-cream hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-flat-md active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
       },
     },
     defaultVariants: {
