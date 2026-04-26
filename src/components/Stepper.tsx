@@ -25,14 +25,15 @@ export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
 const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
   ({ steps, currentKey, dense = false, className, ...rest }, ref) => {
     const currentIdx = steps.findIndex((s) => s.key === currentKey);
-    const padPill = dense ? "px-[9px] py-[3px]" : "px-3 py-[5px]";
-    const fontPill = dense ? "text-[9.5px]" : "text-[10.5px]";
-    const connectorWidth = dense ? "w-[10px]" : "w-3";
+    const padPill = dense ? "px-3.5 py-[5px]" : "px-5 py-2";
+    const fontPill = dense ? "text-[10.5px]" : "text-[12px]";
+    const connectorWidth = dense ? "w-3" : "w-4";
+    const wrapperGap = dense ? "gap-x-2.5 gap-y-2" : "gap-x-3 gap-y-2.5";
 
     return (
       <div
         ref={ref}
-        className={cn("flex flex-wrap items-center gap-x-1.5 gap-y-2", className)}
+        className={cn("flex flex-wrap items-center", wrapperGap, className)}
         {...rest}
       >
         {steps.map((step, i) => {
