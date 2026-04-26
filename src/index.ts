@@ -22,6 +22,18 @@ export type { NavTabProps }                 from "./components/NavTab";
 export { Marquee }                          from "./components/Marquee";
 export { Starburst }                        from "./components/Starburst";
 
+export { Stepper }                          from "./components/Stepper";
+export type { StepperProps, StepperStep }   from "./components/Stepper";
+
+export { TierBar }                          from "./components/TierBar";
+export type { TierBarProps, TierBarTick }   from "./components/TierBar";
+
+export { SectionHeader }                    from "./components/SectionHeader";
+export type { SectionHeaderProps, SectionHeaderAccent } from "./components/SectionHeader";
+
+export { StatCard }                         from "./components/StatCard";
+export type { StatCardProps, StatCardVariant }          from "./components/StatCard";
+
 // ─── Utils ─────────────────────────────────────────────────────────────────────
 export { cn }                               from "./utils/cn";
 

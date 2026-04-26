@@ -24,6 +24,8 @@ const buttonVariants = cva(
           "bg-cream text-espresso border-[3px] border-espresso shadow-flat-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-flat-md active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
         sun:
           "bg-sun text-espresso border-[3px] border-espresso shadow-flat-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-flat-md active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
+        matcha:
+          "bg-matcha text-cream border-[3px] border-espresso shadow-flat-sm hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-flat-md active:translate-x-[3px] active:translate-y-[3px] active:shadow-none",
         ghost:
           "text-espresso hover:bg-cream hover:text-espresso active:bg-cream/80",
         link:
