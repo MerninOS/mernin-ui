@@ -114,6 +114,24 @@ export const merninTheme = {
       "60%":  { transform: "scale(1.05)" },
       "100%": { transform: "scale(1)", opacity: "1" },
     },
+    "drawer-slide-in-right": {
+      from: { transform: "translateX(100%)" },
+      to:   { transform: "translateX(0)" },
+    },
+    "drawer-slide-out-right": {
+      from: { transform: "translateX(0)" },
+      to:   { transform: "translateX(100%)" },
+    },
+    "drawer-slide-in-bottom": {
+      from: { transform: "translateY(100%)" },
+      to:   { transform: "translateY(0)" },
+    },
+    "drawer-slide-out-bottom": {
+      from: { transform: "translateY(0)" },
+      to:   { transform: "translateY(100%)" },
+    },
+    "drawer-fade-in":  { from: { opacity: "0" }, to: { opacity: "1" } },
+    "drawer-fade-out": { from: { opacity: "1" }, to: { opacity: "0" } },
   },
   animation: {
     "accordion-down":  "accordion-down 0.2s ease-out",
@@ -121,6 +139,12 @@ export const merninTheme = {
     "mernin-marquee":  "mernin-marquee 20s linear infinite",
     "fade-up":         "fade-up 220ms cubic-bezier(0.16, 1, 0.3, 1) both",
     "bounce-in":       "bounce-in 220ms cubic-bezier(0.34, 1.56, 0.64, 1) both",
+    "drawer-slide-in-right":  "drawer-slide-in-right 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "drawer-slide-out-right": "drawer-slide-out-right 180ms cubic-bezier(0.7, 0, 0.84, 0)",
+    "drawer-slide-in-bottom":  "drawer-slide-in-bottom 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "drawer-slide-out-bottom": "drawer-slide-out-bottom 180ms cubic-bezier(0.7, 0, 0.84, 0)",
+    "drawer-fade-in":  "drawer-fade-in 220ms cubic-bezier(0.16, 1, 0.3, 1)",
+    "drawer-fade-out": "drawer-fade-out 180ms cubic-bezier(0.7, 0, 0.84, 0)",
   },
 } satisfies NonNullable<NonNullable<Config["theme"]>["extend"]>;
 
