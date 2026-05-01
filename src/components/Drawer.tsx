@@ -25,7 +25,9 @@ const DrawerOverlay = React.forwardRef<
     ref={ref}
     className={cn(
       "fixed inset-0 z-50 bg-espresso/40 backdrop-blur-[1px]",
-      "data-[state=open]:animate-drawer-fade-in data-[state=closed]:animate-drawer-fade-out",
+      "data-[state=open]:animate-in data-[state=closed]:animate-out",
+      "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
+      "data-[state=open]:duration-[220ms] data-[state=closed]:duration-[180ms]",
       "motion-reduce:animate-none",
       className
     )}
@@ -51,14 +53,17 @@ const DrawerContent = React.forwardRef<
       data-side={side}
       className={cn(
         "fixed z-50 flex flex-col bg-cream text-espresso shadow-flat-md focus:outline-none",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out",
+        "data-[state=open]:duration-[220ms] data-[state=closed]:duration-[180ms]",
+        "data-[state=open]:ease-out data-[state=closed]:ease-in",
         side === "right" &&
           "right-0 top-0 h-full w-full max-w-md border-l-[5px] border-espresso " +
-            "data-[state=open]:animate-drawer-slide-in-right " +
-            "data-[state=closed]:animate-drawer-slide-out-right",
+            "data-[state=open]:slide-in-from-right " +
+            "data-[state=closed]:slide-out-to-right",
         side === "bottom" &&
           "bottom-0 left-0 right-0 max-h-[90vh] min-h-[75vh] rounded-t-[20px] border-t-[5px] border-espresso " +
-            "data-[state=open]:animate-drawer-slide-in-bottom " +
-            "data-[state=closed]:animate-drawer-slide-out-bottom",
+            "data-[state=open]:slide-in-from-bottom " +
+            "data-[state=closed]:slide-out-to-bottom",
         "motion-reduce:animate-none",
         className
       )}
