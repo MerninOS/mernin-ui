@@ -56,10 +56,11 @@
     "vitest": "^1"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-slot": "^1",
     "class-variance-authority": "^0.7",
     "clsx": "^2",
-    "tailwind-merge": "^2",
-    "lucide-react": "^0.400"
+    "lucide-react": "^0.400",
+    "tailwind-merge": "^2"
   }
 }
