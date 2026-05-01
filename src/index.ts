@@ -34,6 +34,21 @@ export type { SectionHeaderProps, SectionHeaderAccent } from "./components/Secti
 export { StatCard }                         from "./components/StatCard";
 export type { StatCardProps, StatCardVariant }          from "./components/StatCard";
 
+export {
+  Drawer,
+  DrawerTrigger,
+  DrawerPortal,
+  DrawerClose,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
+  DrawerTitle,
+  DrawerDescription,
+}                                           from "./components/Drawer";
+export type { DrawerContentProps }          from "./components/Drawer";
+
 // ─── Utils ─────────────────────────────────────────────────────────────────────
 export { cn }                               from "./utils/cn";
 
