@@ -49,6 +49,15 @@ export {
 }                                           from "./components/Drawer";
 export type { DrawerContentProps }          from "./components/Drawer";
 
+export { Fab, fabVariants }                 from "./components/Fab";
+export type { FabProps }                    from "./components/Fab";
+
+export { BannerCta, bannerCtaVariants }     from "./components/BannerCta";
+export type { BannerCtaProps }              from "./components/BannerCta";
+
+export { StickyCta, stickyCtaVariants }     from "./components/StickyCta";
+export type { StickyCtaProps }              from "./components/StickyCta";
+
 // ─── Utils ─────────────────────────────────────────────────────────────────────
 export { cn }                               from "./utils/cn";
 
